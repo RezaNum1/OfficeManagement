@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+
+    <div class="card-deck justify-content-center">
+        <div class="card text-white bg-warning mb-3 ml-4" style="max-width: 15rem;">
+            <div class="card-header">
+                <img src="{{ asset('/Image/employee.png') }}" style="width: 100px; height: 100px"><span></span>
+                <p  style="float:right; font-size: 60px" class="mr-3">{{ total }}</p></div>
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center">Karyawan Aktif</h4>
+            </div>
+        </div>
+        <div class="card text-white bg-danger mb-3 ml-4" style="max-width: 15rem;">
+            <div class="card-header">
+                <img src="{{ asset('/Image/resume.png') }}" style="width: 100px; height: 100px"><span></span>
+                <p  style="float:right; font-size: 60px" class="mr-3">{{ total_jabatan }}</p></div>
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center">Jabatan</h4>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

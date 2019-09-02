@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <form>
+        <div class="form-group">
+            <label>NIK</label>
+            <input type="number" class="form-control" name="nik" placeholder="NIK...." value="{{ datas.nik }}" disabled>
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="nama" class="form-control" value="{{ datas.nama }}" disabled>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" value="{{ datas.email }}" disabled>
+        </div>
+        {#        <div class="form-group">#}
+        {#            <label>Jabatan</label>#}
+        {#            <select name="jabatan" class="form-control" disabled>#}
+        {#                <option>{{ datas.jabatan }}</option>#}
+        {#            </select>#}
+        {#        </div>#}
+        <a class="btn btn-primary" href="/karyawan">Back</a>
+    </form>
+{% endblock %}

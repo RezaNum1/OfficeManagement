@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Office Management | Karyawan{% endblock %}
+
+{% block body %}
+    <div class="text-right mr-4 mb-4">
+        <a class="btn btn-success" href="/karyawan/create"><i style="color: white">Add Karyawan +</i></a>
+    </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <form action="/karyawan/search" method="GET">
+        <div class="form-group">
+            <input class="form-control mt-3" placeholder="Search By Name or Nik" name="search">
+            <button type="submit" class="btn btn-primary mt-3 btn-block mb-5">Search</button>
+        </div>
+    </form>
+    <hr>
+    {% if datas %}
+        <table id="tblkar" class="table table-striped">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>NIK</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Jabatan</th>
+                <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set myVal = 10 %}
+
+            {% for data in datas %}
+                <tr>
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.nik }}</td>
+                    <td>{{ data.nama }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>{{ data.jabatan }}</td>
+                    <td>
+                        <a href="/karyawan/show/{{ data.id }}" class="btn btn-dark">Show</a>
+                        <a href="/karyawan/delete/{{ data.id }}" class="btn btn-danger delete-datakar" data-id="{{ data.id }}">Delete</a>
+                        <a href="/karyawan/edit/{{ data.id }}" class="btn btn-warning">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align: center">No Data To Display</p>
+    {% endif %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(datas) }}
+    </div>
+
+{% endblock %}
+
